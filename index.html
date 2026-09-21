@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="TG-SEG — Segurança eletrônica, CFTV, energia solar e instalações elétricas. Atendimento com agendamento.">
+  <title>TG-SEG | Segurança Eletrônica & Energia Solar</title>
+  <style>
+    :root{
+      --green-950:#182900;
+      --green-900:#294500;
+      --green-800:#365d00;
+      --green-700:#4c7600;
+      --green-600:#679500;
+      --lime:#dfff9d;
+      --lime-2:#efffcf;
+      --white:#fff;
+      --muted:#c8d3ae;
+      --dark:#11170a;
+      --line:rgba(223,255,157,.16);
+      --shadow:0 20px 60px rgba(0,0,0,.25);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+      color:var(--white);
+      background:var(--green-950);
+      line-height:1.6;
+    }
+    a{text-decoration:none;color:inherit}
+    .container{width:min(1160px,92%);margin:auto}
+    header{
+      position:fixed;top:0;left:0;right:0;z-index:20;
+      background:rgba(24,41,0,.84);backdrop-filter:blur(16px);
+      border-bottom:1px solid var(--line);
+    }
+    .nav{height:78px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:900;letter-spacing:.5px}
+    .brand img{width:48px;height:48px;object-fit:cover;border-radius:10px}
+    .brand span{font-size:20px}
+    nav{display:flex;gap:28px;align-items:center}
+    nav a{font-size:14px;color:#edf7d8;transition:.2s}
+    nav a:hover{color:var(--lime)}
+    .nav-btn,.btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:9px;
+      padding:13px 20px;border-radius:12px;font-weight:800;
+      transition:.2s;border:1px solid transparent;cursor:pointer
+    }
+    .nav-btn{background:var(--lime);color:var(--green-950)}
+    .nav-btn:hover,.btn:hover{transform:translateY(-2px);filter:brightness(1.04)}
+    .menu{display:none;background:none;border:0;color:white;font-size:28px}
+    .hero{
+      min-height:760px;padding:150px 0 90px;position:relative;overflow:hidden;
+      background:
+        radial-gradient(circle at 75% 25%,rgba(139,190,0,.23),transparent 28%),
+        radial-gradient(circle at 10% 80%,rgba(111,154,0,.12),transparent 30%),
+        linear-gradient(135deg,var(--green-950),var(--green-900));
+    }
+    .hero:after{
+      content:"";position:absolute;width:620px;height:620px;border:1px solid rgba(223,255,157,.08);
+      border-radius:50%;right:-190px;top:90px;box-shadow:0 0 0 70px rgba(223,255,157,.025),0 0 0 140px rgba(223,255,157,.018);
+    }
+    .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:70px;position:relative;z-index:1}
+    .eyebrow{display:inline-flex;padding:7px 12px;border:1px solid rgba(223,255,157,.3);border-radius:999px;color:var(--lime);font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:22px}
+    h1{font-size:clamp(44px,6vw,76px);line-height:.98;letter-spacing:-3px;margin-bottom:24px}
+    h1 span{color:var(--lime)}
+    .hero p{font-size:18px;color:var(--muted);max-width:650px;margin-bottom:32px}
+    .actions{display:flex;gap:13px;flex-wrap:wrap}
+    .btn-primary{background:var(--lime);color:var(--green-950)}
+    .btn-outline{border-color:rgba(223,255,157,.3);color:var(--lime-2);background:rgba(255,255,255,.02)}
+    .hero-logo{
+      display:flex;justify-content:center;align-items:center;
+      background:radial-gradient(circle,rgba(223,255,157,.12),transparent 65%);
+    }
+    .hero-logo img{width:min(460px,90%);filter:drop-shadow(0 25px 45px rgba(0,0,0,.35));border-radius:20px}
+    section{padding:95px 0}
+    .section-head{max-width:720px;margin-bottom:45px}
+    .kicker{color:var(--lime);font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:2px;margin-bottom:10px}
+    h2{font-size:clamp(32px,4vw,48px);line-height:1.05;letter-spacing:-1.5px;margin-bottom:14px}
+    .section-head p{color:var(--muted)}
+    .services{background:#203700}
+    .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .card{
+      padding:28px;border:1px solid var(--line);background:rgba(255,255,255,.035);
+      border-radius:20px;min-height:250px;transition:.25s
+    }
+    .card:hover{transform:translateY(-5px);background:rgba(223,255,157,.06);border-color:rgba(223,255,157,.3)}
+    .icon{width:50px;height:50px;border-radius:14px;display:grid;place-items:center;background:var(--lime);color:var(--green-950);font-size:23px;margin-bottom:22px}
+    .card h3{font-size:19px;margin-bottom:10px}
+    .card p{font-size:14px;color:var(--muted)}
+    .about{background:var(--green-950)}
+    .about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;align-items:center}
+    .visual{
+      border-radius:26px;padding:35px;background:linear-gradient(145deg,#385d00,#172700);
+      border:1px solid var(--line);box-shadow:var(--shadow)
+    }
+    .visual img{width:100%;border-radius:18px;display:block}
+    .checks{display:grid;gap:14px;margin-top:26px}
+    .check{display:flex;gap:12px;align-items:flex-start;color:#eaf6d3}
+    .check b{color:var(--lime)}
+    .booking{
+      background:
+        linear-gradient(90deg,rgba(24,41,0,.95),rgba(39,66,0,.86)),
+        url("logo.png") center/500px no-repeat;
+    }
+    .booking-box{
+      border:1px solid rgba(223,255,157,.25);background:rgba(255,255,255,.045);
+      padding:45px;border-radius:28px;display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center
+    }
+    .booking-box p{color:var(--muted);margin-top:12px}
+    .booking-label{font-size:13px;color:var(--lime);font-weight:800;text-transform:uppercase;letter-spacing:1px}
+    .contacts{display:grid;gap:12px}
+    .contact{
+      padding:16px 18px;border-radius:14px;background:rgba(0,0,0,.16);
+      border:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:12px
+    }
+    .contact small{display:block;color:var(--muted)}
+    .contact strong{font-size:16px}
+    .wa{color:var(--lime);font-weight:800;font-size:13px}
+    footer{padding:34px 0;background:#101b00;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+    .footer-row{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+    @media(max-width:900px){
+      nav{display:none}
+      .menu{display:block}
+      .hero-grid,.about-grid,.booking-box{grid-template-columns:1fr}
+      .hero{min-height:auto}
+      .hero-logo{order:-1}
+      .hero-logo img{width:300px}
+      .cards{grid-template-columns:repeat(2,1fr)}
+    }
+    @media(max-width:560px){
+      .nav{height:68px}.brand img{width:40px;height:40px}.brand span{font-size:17px}
+      .hero{padding-top:120px}
+      h1{letter-spacing:-2px}
+      .cards{grid-template-columns:1fr}
+      section{padding:70px 0}
+      .booking-box{padding:28px}
+      .contact{align-items:flex-start;flex-direction:column}
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="container nav">
+    <a class="brand" href="#inicio" aria-label="TG-SEG início">
+      <img src="logo.png" alt="Logo TG-SEG">
+      <span>TG-SEG</span>
+    </a>
+    <nav>
+      <a href="#servicos">Serviços</a>
+      <a href="#empresa">A empresa</a>
+      <a href="#agendamento">Agendamento</a>
+      <a class="nav-btn" href="https://wa.me/5517997937427?text=Ol%C3%A1%20TG-SEG!%20Gostaria%20de%20agendar%20um%20atendimento." target="_blank" rel="noopener">Falar no WhatsApp</a>
+    </nav>
+    <button class="menu" onclick="alert('Use os botões de atendimento abaixo para falar com a TG-SEG pelo WhatsApp.')" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="inicio">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow">Atendimento com agendamento</div>
+        <h1>Proteção, energia e tecnologia para o seu <span>projeto.</span></h1>
+        <p>Segurança eletrônica, sistemas CFTV, instalação de placas solares e serviços de elétrica com atendimento profissional e agendado.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="https://wa.me/5517997937427?text=Ol%C3%A1%20TG-SEG!%20Quero%20agendar%20um%20atendimento." target="_blank" rel="noopener">💬 Agendar pelo WhatsApp</a>
+          <a class="btn btn-outline" href="#servicos">Conhecer serviços</a>
+        </div>
+      </div>
+      <div class="hero-logo">
+        <img src="logo.png" alt="TG-SEG — Segurança Eletrônica e Energia Solar">
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="servicos">
+    <div class="container">
+      <div class="section-head">
+        <div class="kicker">O que fazemos</div>
+        <h2>Soluções para sua casa, comércio ou empresa.</h2>
+        <p>Projetos e instalações pensados para segurança, eficiência e praticidade.</p>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <div class="icon">🛡️</div>
+          <h3>Segurança eletrônica</h3>
+          <p>Equipamentos e soluções para reforçar a proteção do seu imóvel e facilitar o monitoramento.</p>
+        </article>
+        <article class="card">
+          <div class="icon">📹</div>
+          <h3>Sistema CFTV</h3>
+          <p>Instalação e configuração de câmeras para acompanhamento e monitoramento do ambiente.</p>
+        </article>
+        <article class="card">
+          <div class="icon">☀️</div>
+          <h3>Energia solar</h3>
+          <p>Instalação de sistemas de placas solares para geração de energia e melhor aproveitamento do imóvel.</p>
+        </article>
+        <article class="card">
+          <div class="icon">⚡</div>
+          <h3>Parte elétrica</h3>
+          <p>Serviços e instalações elétricas para deixar seu projeto mais funcional e organizado.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="empresa">
+    <div class="container about-grid">
+      <div class="visual"><img src="logo.png" alt="Identidade visual TG-SEG"></div>
+      <div>
+        <div class="kicker">TG-SEG</div>
+        <h2>Segurança e energia em um só lugar.</h2>
+        <p style="color:var(--muted)">A TG-SEG atua com soluções de segurança eletrônica, CFTV, energia solar e serviços elétricos, buscando unir tecnologia, organização e atendimento próximo ao cliente.</p>
+        <div class="checks">
+          <div class="check"><span>✓</span><div><b>Atendimento agendado</b><br>Combine o melhor horário para o atendimento.</div></div>
+          <div class="check"><span>✓</span><div><b>Orçamento e avaliação</b><br>Converse com a equipe sobre sua necessidade.</div></div>
+          <div class="check"><span>✓</span><div><b>Soluções integradas</b><br>Segurança, câmeras, solar e elétrica.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="booking" id="agendamento">
+    <div class="container">
+      <div class="booking-box">
+        <div>
+          <div class="booking-label">Fale com a equipe</div>
+          <h2>Atendimento com agendamento.</h2>
+          <p>Escolha um dos contatos abaixo e envie uma mensagem pelo WhatsApp para solicitar seu atendimento.</p>
+        </div>
+        <div class="contacts">
+          <a class="contact" href="https://wa.me/5517997937427?text=Ol%C3%A1%20Diego!%20Gostaria%20de%20agendar%20um%20atendimento%20com%20a%20TG-SEG." target="_blank" rel="noopener">
+            <div><small>Diego</small><strong>(17) 99793-7427</strong></div><span class="wa">WhatsApp →</span>
+          </a>
+          <a class="contact" href="https://wa.me/5517991210241?text=Ol%C3%A1%20Rodrigo!%20Gostaria%20de%20agendar%20um%20atendimento%20com%20a%20TG-SEG." target="_blank" rel="noopener">
+            <div><small>Rodrigo</small><strong>(17) 99121-0241</strong></div><span class="wa">WhatsApp →</span>
+          </a>
+          <a class="contact" href="https://wa.me/551735246809?text=Ol%C3%A1%20TG-SEG!%20Gostaria%20de%20agendar%20um%20atendimento." target="_blank" rel="noopener">
+            <div><small>TG-SEG</small><strong>(17) 3524-6809</strong></div><span class="wa">WhatsApp →</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container footer-row">
+    <span>© 2026 TG-SEG — Segurança Eletrônica e Energia Solar</span>
+    <span>Atendimento com agendamento</span>
+  </div>
+</footer>
+</body>
+</html>
